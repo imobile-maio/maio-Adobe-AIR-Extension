@@ -184,7 +184,7 @@ package jp.maio
 			_listener.onClickedAd(zoneId);
 		}
 		
-		internal function onFailed(zoneId:String, reason:int):void
+		internal function onFailed(zoneId:String, reason:String):void
 		{
 			if(!_listener) return;
 			_listener.onFailed(zoneId, reason);

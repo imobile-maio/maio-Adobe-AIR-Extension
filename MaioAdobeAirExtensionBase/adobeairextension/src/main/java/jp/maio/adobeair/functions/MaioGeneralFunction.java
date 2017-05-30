@@ -28,6 +28,11 @@ public class MaioGeneralFunction implements FREFunction {
                     MaioAds.setAdTestMode(freObjects[1].getAsBool());
                     break;
                 case "start":
+
+                    // MEMO: Only two string variables are permitted as a callback to actionscript.
+                    //       Hence, "level" is the function name, and "code" is its contents.
+                    //       The code portion is connected with a colon ':'.
+
                     MaioAds.init(freContext.getActivity(), freObjects[1].getAsString(), new MaioAdsListener(){
 
                         private void sendCallback(String level, String code) {
