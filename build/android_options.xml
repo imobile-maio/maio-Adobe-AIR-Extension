@@ -1,0 +1,5 @@
+<platform xmlns="http://ns.adobe.com/air/extension/23.0">
+    <packagedDependencies>
+        <packagedDependency>maio.jar</packagedDependency>
+    </packagedDependencies>
+</platform>

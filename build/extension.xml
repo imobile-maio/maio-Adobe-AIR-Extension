@@ -1,0 +1,17 @@
+<extension xmlns="http://ns.adobe.com/air/extension/23.0"> 
+    <id>jp.maio</id> 
+    <versionNumber>1.0.0</versionNumber> 
+    <platforms> 
+
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>MaioExtension.jar</nativeLibrary>
+                <initializer>jp.maio.adobeair.MaioExtension</initializer>
+            </applicationDeployment> 
+        </platform>
+
+        <platform name="default">
+            <applicationDeployment/>
+        </platform>
+    </platforms> 
+</extension>
