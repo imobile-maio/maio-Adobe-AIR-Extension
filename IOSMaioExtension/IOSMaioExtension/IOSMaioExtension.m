@@ -17,10 +17,10 @@ static FREContext eventContext;
 static MaioAdobeAirDelegate *delegate;
 
 #pragma mark - Predefined functions
-NSString* GetFREObjectAsNSString(FREObject obj);
-BOOL GetFREObjectAsBOOL(FREObject obj);
-FREObject* NewFREObjectFromNSString(NSString* string);
-FREObject* NewFREObjectFromBool(BOOL value);
+NSString* FREGetObjectAsNSString(FREObject obj);
+BOOL FREGetObjectAsBOOL(FREObject obj);
+FREObject* FRENewObjectFromNSString(NSString* string);
+FREObject* FRENewObjectFromBOOL(BOOL value);
 
 #pragma mark - Interface
 
@@ -35,36 +35,36 @@ FREObject init(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 
 FREObject generalFunction(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
-    NSString *functionName = GetFREObjectAsNSString(argv[0]);
+    NSString *functionName = FREGetObjectAsNSString(argv[0]);
     
     if([functionName isEqualToString:@"getSdkVersion"])
     {
-        return NewFREObjectFromNSString([Maio sdkVersion]);
+        return FRENewObjectFromNSString([Maio sdkVersion]);
     }
     else if ([functionName isEqualToString:@"setAdTestMode"])
     {
-        [Maio setAdTestMode:GetFREObjectAsBOOL(argv[1])];
+        [Maio setAdTestMode:FREGetObjectAsBOOL(argv[1])];
     }
     else if([functionName isEqualToString:@"start"])
     {
-        [Maio startWithMediaId:GetFREObjectAsNSString(argv[1]) delegate:delegate];
+        [Maio startWithMediaId:FREGetObjectAsNSString(argv[1]) delegate:delegate];
     }
     else if([functionName isEqualToString:@"canShow"])
     {
         if(argc > 1)
         {
-            return NewFREObjectFromBool([Maio canShowAtZoneId:GetFREObjectAsNSString(argv[1])]);
+            return FRENewObjectFromBOOL([Maio canShowAtZoneId:FREGetObjectAsNSString(argv[1])]);
         }
         else
         {
-            return NewFREObjectFromBool([Maio canShow]);
+            return FRENewObjectFromBOOL([Maio canShow]);
         }
     }
     else if([functionName isEqualToString:@"show"])
     {
         if(argc > 1)
         {
-            [Maio showAtZoneId:GetFREObjectAsNSString(argv[1])];
+            [Maio showAtZoneId:FREGetObjectAsNSString(argv[1])];
         }
         else
         {
@@ -81,7 +81,7 @@ FREObject generalFunction(FREContext ctx, void* funcData, uint32_t argc, FREObje
 
 #pragma mark - Utilities
 
-NSString* GetFREObjectAsNSString(FREObject obj)
+NSString* FREGetObjectAsNSString(FREObject obj)
 {
     uint32_t stringLength;
     const uint8_t *string;
@@ -89,7 +89,7 @@ NSString* GetFREObjectAsNSString(FREObject obj)
     return [NSString stringWithUTF8String:(char*)string];
 }
 
-BOOL GetFREObjectAsBOOL(FREObject obj)
+BOOL FREGetObjectAsBOOL(FREObject obj)
 {
     uint32_t c_value;
     FREGetObjectAsBool(obj, &c_value);
@@ -97,7 +97,7 @@ BOOL GetFREObjectAsBOOL(FREObject obj)
     return c_value != 0;
 }
 
-FREObject* NewFREObjectFromNSString(NSString* string)
+FREObject* FRENewObjectFromNSString(NSString* string)
 {
     FREObject freString;
     
@@ -107,7 +107,7 @@ FREObject* NewFREObjectFromNSString(NSString* string)
     return freString;
 }
 
-FREObject* NewFREObjectFromBool(BOOL value)
+FREObject* FRENewObjectFromBOOL(BOOL value)
 {
     FREObject freBool;
     FRENewObjectFromBool((uint32_t)value, &freBool);
@@ -122,7 +122,8 @@ void MaioExtensionContextInitializer(void* extData,
                                      uint32_t* numFunctionsToSet,
                                      const FRENamedFunction** functionsToSet)
 {
-    static FRENamedFunction functionMap[] = {
+    static FRENamedFunction functionMap[] =
+    {
         MAP_FUNCTION(init, NULL),
         MAP_FUNCTION(generalFunction, NULL)
     };

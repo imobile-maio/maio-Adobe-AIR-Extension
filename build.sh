@@ -3,12 +3,15 @@
 BIN="$(cd $(dirname $0) && /bin/pwd)"
 
 TMP_UNZIP="${BIN}/unzipped"
+
 BUILD="${BIN}/build"
 BUILD_ANDROID="${BUILD}/android"
 BUILD_IOS="${BUILD}/ios"
 BUILD_DEFAULT="${BUILD}/default"
+
 MAIO_EXTENSION="${BIN}/MaioExtension"
 MAIO_EXTENSION_DEFAULT="${BIN}/MaioExtensionDefault"
+
 ANDROID_JAR="${BIN}/MaioAdobeAirExtensionBase/adobeairextension/build/intermediates/bundles/debug/classes.jar"
 IOS_LIB="${BIN}/IOSMaioExtension/IOSMaioExtension/build/release/libIOSMaioExtension.a"
 

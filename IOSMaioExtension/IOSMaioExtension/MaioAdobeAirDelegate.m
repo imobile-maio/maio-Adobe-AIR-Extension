@@ -66,9 +66,8 @@
     NSArray *paramArray = @[zoneId,
                             [NSString stringWithFormat:@"%ld", (long)playtime],
                             skipped ? @"true" : @"",
-                            rewardParam];
+                            rewardParam ?: @"0"];
     NSString *params = [paramArray componentsJoinedByString:@":"];
-    NSLog(@"TRACE: %@", params);
     [self sendCallbackToFunction:@"onFinishedAd" Params:params];
 }
 
