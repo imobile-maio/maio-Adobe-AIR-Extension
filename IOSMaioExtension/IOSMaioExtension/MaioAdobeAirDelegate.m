@@ -33,6 +33,8 @@
 
 -(void)sendCallbackToFunction:(NSString *)functionName Params:(NSString *)params
 {
+    if(!extensionContext) return; // extensionContext must not be null
+    
     const uint8_t* code = (const uint8_t*) [functionName UTF8String];
     const uint8_t* level = (const uint8_t*) [params UTF8String];
     FREDispatchStatusEventAsync(extensionContext, code, level);
@@ -65,11 +67,8 @@
                             [NSString stringWithFormat:@"%ld", (long)playtime],
                             skipped ? @"true" : @"",
                             rewardParam];
-    NSString *params = @"";
-    for(NSString* param in paramArray)
-    {
-        params = [NSString stringWithFormat:@"%@:%@", params, param];
-    }
+    NSString *params = [paramArray componentsJoinedByString:@":"];
+    NSLog(@"TRACE: %@", params);
     [self sendCallbackToFunction:@"onFinishedAd" Params:params];
 }
 

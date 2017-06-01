@@ -11,13 +11,12 @@
 #import "FlashRuntimeExtensions.h"
 #import "MaioAdobeAirDelegate.h"
 
+#define MAP_FUNCTION(fn, data) { (const uint8_t*)(#fn), (data), &(fn) }
+
 static FREContext eventContext;
 static MaioAdobeAirDelegate *delegate;
 
 #pragma mark - Predefined functions
-FREObject init(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-FREObject generalFunction(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-
 NSString* GetFREObjectAsNSString(FREObject obj);
 BOOL GetFREObjectAsBOOL(FREObject obj);
 FREObject* NewFREObjectFromNSString(NSString* string);
@@ -120,23 +119,15 @@ FREObject* NewFREObjectFromBool(BOOL value)
 void MaioExtensionContextInitializer(void* extData,
                                      const uint8_t* ctxType,
                                      FREContext ctx,
-                                     uint32_t* numFunctionsToTest,
+                                     uint32_t* numFunctionsToSet,
                                      const FRENamedFunction** functionsToSet)
 {
-    *numFunctionsToTest = 2;
-    
-    // init
-    FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
-    func[0].name = (const uint8_t*) "init";
-    func[0].functionData = NULL;
-    func[0].function = &init;
-    
-    // generalFunction
-    func[0].name = (const uint8_t*) "generalFunction";
-    func[0].functionData = NULL;
-    func[0].function = &generalFunction;
-    
-    *functionsToSet = func;
+    static FRENamedFunction functionMap[] = {
+        MAP_FUNCTION(init, NULL),
+        MAP_FUNCTION(generalFunction, NULL)
+    };
+    *numFunctionsToSet = sizeof( functionMap ) / sizeof( FRENamedFunction );
+    *functionsToSet = functionMap;
 }
 
 void MaioExtensionInitializer(void** extDataToSet,
