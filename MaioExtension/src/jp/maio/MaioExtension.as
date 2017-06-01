@@ -67,6 +67,7 @@ package jp.maio
 					break;
 				case "onFinishedAd":
 					args = getArgs(event);
+					trace(event.level)
 					zoneId = args[0];
 					var playtime:int = int(args[1]);
 					var skipped:Boolean = Boolean(args[2]);
@@ -99,7 +100,6 @@ package jp.maio
 		
 		public static function getSdkVersion():String
 		{
-			trace("getSdkVersion");
 			return instance._context.call("generalFunction", "getSdkVersion") as String;
 		}
 		
