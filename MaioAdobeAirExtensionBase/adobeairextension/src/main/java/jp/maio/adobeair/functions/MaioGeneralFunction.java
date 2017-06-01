@@ -30,16 +30,16 @@ public class MaioGeneralFunction implements FREFunction {
                 case "start":
 
                     // MEMO: Only two string variables are permitted as a callback to actionscript.
-                    //       Hence, "level" is the function name, and "code" is its contents.
+                    //       Hence, "code" is the function name, and "level" is its contents.
                     //       The code portion is connected with a colon ':'.
 
                     MaioAds.init(freContext.getActivity(), freObjects[1].getAsString(), new MaioAdsListener(){
 
-                        private void sendCallback(String level, String code) {
+                        private void sendCallback(String functionName, String params) {
                             FREContext context = MaioExtension.getExtensionContext();
                             // Context should never be null.
                             if(context == null) return;
-                            context.dispatchStatusEventAsync(level, code);
+                            context.dispatchStatusEventAsync(functionName, params);
                         }
 
                         @Override
@@ -48,10 +48,10 @@ public class MaioGeneralFunction implements FREFunction {
                         }
 
                         @Override
-                        public void onChangedCanShow(String mediaId, boolean canShow) {
+                        public void onChangedCanShow(String zoneId, boolean canShow) {
                             // MEMO: Boolean conversion in actionscript depends on whether the string is emply or not.
                             // i.e. "true"/"false" = true, ""/null = false
-                            sendCallback("onChangedCanShow", canShow ? "true" : "");
+                            sendCallback("onChangedCanShow", zoneId + ":" + (canShow ? "true" : ""));
                         }
 
                         @Override

@@ -10,6 +10,13 @@
             </applicationDeployment> 
         </platform>
 
+        <platform name="iPhone-ARM"> 
+            <applicationDeployment> 
+                <nativeLibrary>libIOSMaioExtension.a</nativeLibrary> 
+                <initializer>MaioExtensionInitializer</initializer>
+            </applicationDeployment>
+        </platform>
+
         <platform name="default">
             <applicationDeployment/>
         </platform>

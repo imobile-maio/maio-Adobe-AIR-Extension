@@ -6,7 +6,7 @@ package jp.maio
 	public class MaioExtension
 	{
 		private static var _instance:MaioExtension;
-		private static var _listener: IMaioListener;
+		private static var _listener: Object;
 		private var _context: ExtensionContext;
 		
 		// =============================================================================
@@ -41,6 +41,7 @@ package jp.maio
 				throw new Error("air: context initialize error");
 			}
 			_context.addEventListener(StatusEvent.STATUS, onStatusChanged);
+			_context.call("init");
 		}
 		
 		private function onStatusChanged(event:StatusEvent):void
@@ -99,8 +100,7 @@ package jp.maio
 		public static function getSdkVersion():String
 		{
 			trace("getSdkVersion");
-			var result:String = instance._context.call("generalFunction", "getSdkVersion") as String;
-			return result;
+			return instance._context.call("generalFunction", "getSdkVersion") as String;
 		}
 		
 		public static function setAdTestMode(isAdTestMode:Boolean):void
@@ -108,7 +108,7 @@ package jp.maio
 			instance._context.call("generalFunction", "setAdTestMode", isAdTestMode);
 		}
 		
-		public static function start(mediaId:String, listener:IMaioListener):void
+		public static function start(mediaId:String, listener:Object):void
 		{
 			_listener = listener;
 			instance._context.call("generalFunction", "start", mediaId);
@@ -140,7 +140,7 @@ package jp.maio
 			}
 		}
 		
-		public static function setListener(listener:IMaioListener):void
+		public static function setListener(listener:Object):void
 		{
 			_listener = listener;
 		}
@@ -157,37 +157,55 @@ package jp.maio
 		internal static function onInitialized():void
 		{
 			if(!_listener) return;
-			_listener.onInitialized();
+			if(_listener.hasOwnProperty("onInitialized")) 
+			{
+				_listener.onInitialized();	
+			}
 		}
 		
 		internal static function onChangedCanShow(mediaId:String, newValue:Boolean):void
 		{
 			if(!_listener) return;
-			_listener.onChangedCanShow(mediaId, newValue);
+			if(_listener.hasOwnProperty("onChangedCanShow")) 
+			{
+				_listener.onChangedCanShow(mediaId, newValue);	
+			}
 		}
 		
 		internal static function onStartAd(zoneId:String):void
 		{
 			if(!_listener) return;
-			_listener.onStartAd(zoneId);
+			if(_listener.hasOwnProperty("onStartAd"))
+			{
+				_listener.onStartAd(zoneId);
+			}
 		}
 		
 		internal function onFinishedAd(zoneId:String, playtime:int, skipped:Boolean, rewardParam:String):void
 		{
 			if(!_listener) return;
-			_listener.onFinishedAd(zoneId, playtime, skipped, rewardParam);
+			if(_listener.hasOwnProperty("onFinishedAd"))
+			{
+				_listener.onFinishedAd(zoneId, playtime, skipped, rewardParam);	
+			}
 		}
 		
 		internal function onClickedAd(zoneId:String):void
 		{
 			if(!_listener) return;
-			_listener.onClickedAd(zoneId);
+			if(_listener.hasOwnProperty("onClickedAd"))
+			{
+				_listener.onClickedAd(zoneId);	
+			}
 		}
 		
 		internal function onFailed(zoneId:String, reason:String):void
 		{
 			if(!_listener) return;
-			_listener.onFailed(zoneId, reason);
+			if(_listener.hasOwnProperty("onFailed"))
+			{
+				_listener.onFailed(zoneId, reason);	
+			}
 		}
 		
 	}

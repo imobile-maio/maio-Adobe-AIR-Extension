@@ -1,5 +1,7 @@
 package jp.maio.adobeair;
 
+import android.util.Log;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 
@@ -13,7 +15,7 @@ public class MaioExtension implements FREExtension {
 
     public static FREContext getExtensionContext() { return extensionContext; }
     public static void setExtensionContext(FREContext context) {
-        if(context != null) return;
+        if(MaioExtension.extensionContext != null) return;
         MaioExtension.extensionContext = context;
     }
 
