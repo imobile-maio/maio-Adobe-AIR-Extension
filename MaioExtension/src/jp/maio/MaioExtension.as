@@ -38,7 +38,7 @@ package jp.maio
 			_context = ExtensionContext.createExtensionContext("jp.maio", "");
 			if(!_context)
 			{
-				throw new Error("air: context initialize error");
+				throw new Error("[MaioExtension] context initialize error");
 			}
 			_context.addEventListener(StatusEvent.STATUS, onStatusChanged);
 			_context.call("init");
@@ -67,7 +67,6 @@ package jp.maio
 					break;
 				case "onFinishedAd":
 					args = getArgs(event);
-					trace(event.level)
 					zoneId = args[0];
 					var playtime:int = int(args[1]);
 					var skipped:Boolean = Boolean(args[2]);

@@ -73,7 +73,7 @@ FREObject generalFunction(FREContext ctx, void* funcData, uint32_t argc, FREObje
     }
     else
     {
-        NSLog(@"undefined function: %@", functionName);
+        NSLog(@"[MaioExtension-iOS] undefined function: %@", functionName);
     }
     
     return NULL;
