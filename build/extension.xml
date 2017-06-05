@@ -1,4 +1,4 @@
-<extension xmlns="http://ns.adobe.com/air/extension/23.0"> 
+<extension xmlns="http://ns.adobe.com/air/extension/19.0"> 
     <id>jp.maio</id> 
     <versionNumber>1.0.0</versionNumber> 
     <platforms> 
