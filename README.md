@@ -15,3 +15,29 @@ https://github.com/imobile-maio/maio-Adobe-AIR-Extension/releases
 
 ## API Reference
 https://github.com/imobile-maio/maio-Adobe-AIR-Extension/wiki/API-Reference
+
+## 自身でビルドする場合
+
+* macOS、Animate にて動作確認をしています。
+* Animate または Flash Builder の adt が利用できるようパスを通しておく必要があります。
+
+MaioExtension のプロジェクト構成は以下のようになっています。
+* IOSMaioExtension
+    - Xcode で作成された iOS 向けの Extension です。
+* MaioAdobeAirExtensionBase
+    - Android Studio で作成された Android 向けの Extension です。
+* MaioExtension
+    - Flash Builder 4.7で作成された Adobe AIR 向けの Extension です。
+* MaioExtensionDefault
+    - Flash Builder 4.7で作成された Adobe AIR 向けのデフォルト Extension です。
+    - デバッガやPC環境で実行した場合に参照されます。
+* build
+    - 実際にビルドするバイナリを配置しています。
+
+SDKの差し替えは、ビルドは以下の手順で行うことができます。
+
+1. 更新の必要がある、以下のいずれかのファイルを差し替えます。
+    * `build/android/maio.jar`
+    * `build/ios/Maio.framework`
+2. `build.sh`を実行します。
+3. ビルドされたファイルがルートディレクトリに`MaioExtension.ane`として保存されます。
