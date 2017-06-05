@@ -8,13 +8,13 @@
     * Android SDK Versios 1.0.4
 
 ## Download
-https://github.com/imobile-maio/maio-Adobe-AIR-Extension/releases
+[releases](https://github.com/imobile-maio/maio-Adobe-AIR-Extension/releases)
 
 ## Get Started
 [wiki/Get-Started](https://github.com/imobile-maio/maio-Adobe-AIR-Extension/wiki/Get-Started)
 
 ## API Reference
-https://github.com/imobile-maio/maio-Adobe-AIR-Extension/wiki/API-Reference
+[wiki/API-Reference](https://github.com/imobile-maio/maio-Adobe-AIR-Extension/wiki/API-Reference)
 
 ## 自身でビルドする場合
 
