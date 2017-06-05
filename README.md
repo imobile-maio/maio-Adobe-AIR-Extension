@@ -3,7 +3,7 @@
 # maio Adobe AIR Extension
 
 * Adobe AIR Extension version 1.0.0β
-* サンプルとして同梱しているSDK
+* 同梱しているSDK
     * iOS SDK Version 1.2.10
     * Android SDK Versios 1.0.4
 
