@@ -165,12 +165,12 @@ package jp.maio
 			}
 		}
 		
-		internal static function onChangedCanShow(mediaId:String, newValue:Boolean):void
+		internal static function onChangedCanShow(zoneId:String, newValue:Boolean):void
 		{
 			if(!_listener) return;
 			if(_listener.hasOwnProperty("onChangedCanShow")) 
 			{
-				_listener.onChangedCanShow(mediaId, newValue);	
+				_listener.onChangedCanShow(zoneId, newValue);	
 			}
 		}
 		
