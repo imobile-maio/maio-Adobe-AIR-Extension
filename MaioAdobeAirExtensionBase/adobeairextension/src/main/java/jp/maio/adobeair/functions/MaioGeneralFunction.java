@@ -60,6 +60,11 @@ public class MaioGeneralFunction implements FREFunction {
                         }
 
                         @Override
+                        public void onClosedAd(String zoneId) {
+                            sendCallback("onCloseAd", zoneId);
+                        }
+
+                        @Override
                         public void onFinishedAd(int playtime, boolean skipped, int duration, String zoneId) {
                             // TODO Replace "0" with the actual reward parameter when Android's implementation is done.
                             String[] params = {zoneId, String.valueOf(playtime), skipped ? "true" : "", "0"};

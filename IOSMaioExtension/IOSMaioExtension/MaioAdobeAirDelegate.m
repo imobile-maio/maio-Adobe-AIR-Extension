@@ -58,6 +58,11 @@
     [self sendCallbackToFunction:@"onStartAd" Params:zoneId];
 }
 
+-(void)maioDidCloseAd:(NSString *)zoneId
+{
+    [self sendCallbackToFunction:@"onCloseAd" Params:zoneId];
+}
+
 -(void)maioDidFinishAd:(NSString *)zoneId
               playtime:(NSInteger)playtime
                skipped:(BOOL)skipped

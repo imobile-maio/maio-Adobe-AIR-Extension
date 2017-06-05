@@ -76,6 +76,9 @@ package jp.maio
 				case "onClickedAd":
 					onClickedAd(event.code);
 					break;
+				case "onCloseAd":
+					onCloseAd(event.code);
+					break;
 				case "onFailed":
 					args = getArgs(event);
 					zoneId = args[0];
@@ -195,6 +198,15 @@ package jp.maio
 			if(_listener.hasOwnProperty("onClickedAd"))
 			{
 				_listener.onClickedAd(zoneId);	
+			}
+		}
+		
+		internal function onCloseAd(zoneId:String):void
+		{
+			if(!_listener) return;
+			if(_listener.hasOwnProperty("onCloseAd"))
+			{
+				_listener.onCloseAd(zoneId);	
 			}
 		}
 		
