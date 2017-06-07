@@ -4,7 +4,7 @@
 
 * Adobe AIR Extension version 1.0.0β
 * サンプルとして同梱しているSDK
-    * iOS SDK Version 1.2.10
+    * iOS SDK Version 1.2.11
     * Android SDK Versios 1.0.4
 
 ## Download

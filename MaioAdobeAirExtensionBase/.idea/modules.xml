@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MaioAdobeAirExtensionBase.iml" filepath="$PROJECT_DIR$/MaioAdobeAirExtensionBase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MaioAdobeAirExtensionBase.iml" filepath="$PROJECT_DIR$/MaioAdobeAirExtensionBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/adobeairextension/adobeairextension.iml" filepath="$PROJECT_DIR$/adobeairextension/adobeairextension.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
