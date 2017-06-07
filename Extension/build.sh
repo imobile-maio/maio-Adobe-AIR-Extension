@@ -59,6 +59,7 @@ adt -package -target ane MaioExtension.ane extension.xml -swc MaioExtension.swc 
         -C default .
 
 echo "> Copying library to root"
-cp -f $BUILD/MaioExtension.ane $BIN
+cd $BIN
+cp -f $BUILD/MaioExtension.ane ../
 
 echo "> DONE ☕"

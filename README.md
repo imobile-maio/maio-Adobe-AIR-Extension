@@ -22,22 +22,22 @@
 * Animate または Flash Builder の adt が利用できるようパスを通しておく必要があります。
 
 ### MaioExtension のプロジェクト構成
-* IOSMaioExtension
+* Extension/IOSMaioExtension
     - Xcode で作成された iOS 向けの Extension です。
-* MaioAdobeAirExtensionBase
+* Extension/MaioAdobeAirExtensionBase
     - Android Studio で作成された Android 向けの Extension です。
-* MaioExtension
+* Extension/MaioExtension
     - Flash Builder 4.7で作成された Adobe AIR 向けの Extension です。
-* MaioExtensionDefault
+* Extension/MaioExtensionDefault
     - Flash Builder 4.7で作成された Adobe AIR 向けのデフォルト Extension です。
     - デバッガやPC環境で実行した場合に参照されます。
-* build
+* Extension/build
     - 実際にビルドするバイナリを配置しています。
 
 ### SDKの差し替え手順
 
 1. 更新の必要がある、以下のいずれかのファイルを差し替えます。
-    * `build/android/maio.jar`
-    * `build/ios/Maio.framework`
-2. `build.sh`を実行します。
+    * `Extension/build/android/maio.jar`
+    * `Extension/build/ios/Maio.framework`
+2. `Extension/build.sh`を実行します。
 3. ビルドされたファイルがルートディレクトリに`MaioExtension.ane`として保存されます。
