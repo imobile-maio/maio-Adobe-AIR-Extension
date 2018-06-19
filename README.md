@@ -4,8 +4,8 @@
 
 * Adobe AIR Extension version 1.0.0β
 * 同梱しているSDK
-    * iOS SDK Version 1.2.11
-    * Android SDK Versios 1.0.4
+    * iOS SDK Version 1.3.1
+    * Android SDK Version 1.1.1
 
 ## Download
 [releases](https://github.com/imobile-maio/maio-Adobe-AIR-Extension/releases)
@@ -20,6 +20,8 @@
 
 * `StageWebView` が表示されている最中に広告を表示しようとした場合、画面が真っ黒のまま表示されません。
     - `StageWebView` のインスタンスを破棄した後に広告を再生することで、この不具合を回避できます。
+* プレイアブル広告の表示ができません。
+    - `AndroidManifest.xml` に `HtmlBasedAdActivity` を記述しなければ動画広告のみが配信されますので、プレイアブル広告に対応するまではこちらの記述は行わないようお願いいたします。
 
 ## 自身でビルドする場合
 
