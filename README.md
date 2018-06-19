@@ -41,8 +41,12 @@
 
 ### SDKの差し替え手順
 
-1. 更新の必要がある、以下のいずれかのファイルを差し替えます。
-    * `Extension/build/android/maio.jar`
-    * `Extension/build/ios/Maio.framework`
-2. `Extension/build.sh`を実行します。
-3. ビルドされたファイルがルートディレクトリに`MaioExtension.ane`として保存されます。
+- 以下の作業は macOS で行うことを想定しています。
+- `update.py` を実行することで、最新の maio SDK を github より取得し、新しい ANE を `update.py` と同じディレクトリに出力します。
+- `update.py` を実行するには、**Python v3.6 以上を必要とします。**
+
+```sh
+cd <このレポジトリを展開したディレクトリ>
+chmod 777 ./update.py
+./update.py
+```
