@@ -71,6 +71,17 @@ FREObject generalFunction(FREContext ctx, void* funcData, uint32_t argc, FREObje
             [Maio show];
         }
     }
+    else if([functionName isEqualToString:@"nslog"])
+    {
+        if(argc > 1)
+        {
+            NSLog(@"%@", FREGetObjectAsNSString(argv[1]));
+        }
+        else
+        {
+            NSLog(@"NSLog requested but found no arguments.");
+        }
+    }
     else
     {
         NSLog(@"[MaioExtension-iOS] undefined function: %@", functionName);

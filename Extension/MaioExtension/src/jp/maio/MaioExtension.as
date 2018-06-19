@@ -100,6 +100,11 @@ package jp.maio
 		// public
 		// =============================================================================
 		
+		public static function writeLog(message:String):void
+		{
+			instance._context.call("generalFunction", "nslog", message);
+		}
+		
 		public static function getSdkVersion():String
 		{
 			return instance._context.call("generalFunction", "getSdkVersion") as String;
