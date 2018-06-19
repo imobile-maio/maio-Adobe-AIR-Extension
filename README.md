@@ -16,6 +16,11 @@
 ## API Reference
 [wiki/API-Reference](https://github.com/imobile-maio/maio-Adobe-AIR-Extension/wiki/API-Reference)
 
+## 既知の不具合
+
+* `StageWebView` が表示されている最中に広告を表示しようとした場合、画面が真っ黒のまま表示されません。
+    - `StageWebView` のインスタンスを破棄した後に広告を再生することで、この不具合を回避できます。
+
 ## 自身でビルドする場合
 
 * macOS、Animate にて動作確認をしています。
